@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="container portfolio">
+        {% include 'parciales/_alerts.html' %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading">				
+                    <img src="https://image.ibb.co/cbCMvA/logo.png" />
+                </div>
+            </div>	
+        </div>
+        <div class="bio-info">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="bio-image">
+                                <img src="https://place-hold.it/273x273&text={{ user.first_name }}" alt="image" />
+                            </div>			
+                        </div>
+                    </div>						
+                </div>
+                <div class="col-md-6">
+                    <div class="bio-content">
+                        <h1>¡Hola {{ user }}!</h1><h2>{% for proy in user.proyectos.all %}{{ proy }}{% endfor %} | Menciones disponibles: {{ user.menciones_hechas }}</h2>
+                            {% for categoria in user.categorias.all %}
+                                <h5>{{ categoria }}</h5>
+                            {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class"chart-space col-md-12">
+                {% if menciones %}
+                    {% autoescape off %}
+                        {{ plot_div }}
+                    {% endautoescape %}
+                {% else %}
+                    <h1>Pendiente asignación de categorias.</h1>
+                {% endif %}																
+                </div>
+            </div>
+            <div class="row">
+                {% if compañeros %}
+                    <h1>Compañeros de proyecto: </h1>
+                    <div class="media col-md-12">
+                        {% for c in compañeros %}
+                            <div class="media-body col-md-3">
+                                <h3><a href="{% url 'perfil' c.id %}">{{ c.first_name }} {{ c.last_name }}</a></h3>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                     <h1>Pendiente asignación de proyecto.</h1>
+                {% endif %}
+            </div>	
+        </div>
+    </div>
+{% endblock %}

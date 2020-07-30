@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+    db:
+        image: postgres
+        container_name: postgres_db
+        restart: always
+        environment: 
+            - POSTGRES_DB=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+    
+    web:
+        build: .
+        container_name: django
+        restart: always
+        command: python manage.py runserver 0.0.0.0:8000
+        volumes:
+            - .:/BlueRecog
+        ports: 
+            - "8000:8000"
+        depends_on: 
+            - db
+
+    # mongo-db:
+    #     image: mongo
+    #     container_name: blue_mongo
+    #     environment: 
+    #         - MONGO_INITDB_DATABASE=blue_mongo
+    #         - MONGO_INITDB_ROOT_USERNAME=admin 
+    #         - MONGO_INITDB_ROOT_PASSWORD=admin
+    #     volumes: 
+    #         - /init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
+    #         - ./mongo-volume:/data/db
+    #     ports: 
+    #         - '27019:27019'

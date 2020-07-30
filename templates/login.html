@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="login-page">
+  {% include 'parciales/_alerts.html' %}
+  <div class="form">
+    <form class="login-form" action="{% url 'loginv' %}" method="POST">
+    {% csrf_token %}
+      {{ form.as_p }}
+      <button value='login' name='login_b'>Acceder</button>
+      <p class="message">¿No estás registrado?<a href="{% url 'registro' %}">Crea una cuenta</a></p>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{% include 'parciales/_alerts.html' %}
+    {% for empleado in empleados %}
+			<div class="people" style="margin: auto; padding-top: 1%">
+				<div class="col-md-12">
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object dp img-circle" src="https://place-hold.it/200x200&text={{ empleado.first_name }}" style="width: 200px;height:200px;">
+						</a>
+						<div class="media-body col-md-12">
+							<h4 class="media-heading">
+								<a href="{% if empleado.id == user.id %}
+											{% url 'dashboard' %}
+										 {% else %}
+											{% url 'perfil' empleado.id %}
+										 {% endif %}"
+										>
+										{{ empleado.first_name }} {{ empleado.last_name }} | {% for proy in empleado.proyectos.all %}{{ proy }}{% endfor %}<big> {{ empleado.promedio_puntuaciones }}</big></a></h4>
+							<hr style="margin:8px auto">
+							{% for categoria in empleado.categorias.all %}
+								<h4>{{ categoria }}</h4>
+							{% endfor %}
+							<br>
+						</div>
+					</div>
+				</div>
+			</div>
+    {% endfor %}
+{% endblock %}
