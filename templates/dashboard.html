@@ -56,7 +56,35 @@
                 {% else %}
                      <h1>Pendiente asignación de proyecto.</h1>
                 {% endif %}
-            </div>	
+            </div>
+            <div class="row">
+                {% if ultimas_menciones %}
+                <h1>Últimas menciones realizadas: </h1>
+                <div class="material-table card">
+                    <div class="material-table-header"></div>
+                    <div class="material-table-body">
+                        <table cellspacing="0">
+                            <tbody>
+                                <tr>
+                                    <th>Receptor</th>
+                                    <th>Categoria</th>
+                                    <th>Puntuacion</th>
+                                    <th>Fecha</th>
+                                </tr>
+                                {% for um in ultimas_menciones %}
+                                    <tr>
+                                        <td>{{um.receptor}}</td>
+                                        <td>{{um.categoria}}</td>
+                                        <td>{{um.puntuacion}}</td>
+                                        <td>{{um.fecha_realización}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
         </div>
     </div>
 {% endblock %}
