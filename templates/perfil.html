@@ -40,7 +40,30 @@
                                 {% csrf_token %}
                                 {% for categoria in empleado.categorias.all %}
                                     <h5>{{ categoria }}</h5>
-                                    <input type="text" name="{{ categoria }}" required minlength="0" maxlength="1" size="1">
+                                    <!-- <input type="text" name="{{ categoria }}" required minlength="0" maxlength="1" size="1"> -->
+                                    <!-- <input type="radio" name="{{ categoria }}" id="A" value="A"> -->
+                                    <fieldset id="{{ categoria }}}" name="{{ categoria }}">
+                                        <label>
+                                            <input type="radio" name="{{ categoria }}" id="A" value="A" />
+                                            <span class="icon">A</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="{{ categoria }}" id="B" value="B" />
+                                            <span class="icon">B</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="{{ categoria }}" id="C" value="C" />
+                                            <span class="icon">C</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="{{ categoria }}" id="D" value="D" />
+                                            <span class="icon">D</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="{{ categoria }}" id="E" value="E" />
+                                            <span class="icon">E</span>
+                                        </label>
+                                    </fieldset>
                                 {% endfor %}
                                 <button type="submit" value="Send" class="btn btn-primary people-btn">Enviar</button>
                             </form>
