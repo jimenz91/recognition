@@ -9,47 +9,6 @@ from reconocimientos.api.serializers import (
     PuntuacionSerializer, ProyectoSerializer)
 
 
-# @api_view(['GET', 'POST'])
-# def puntuacion_list_create_api_view(request):
-#     if request.method == 'GET':
-#         puntuacions = Puntuacion.objects.all()
-#         serializer = PuntuacionSerializer(puntuacions, many=True)
-#         return Response(serializer.data)
-
-#     elif request.method == 'POST':
-#         serializer = PuntuacionSerializer(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-# @api_view(['GET', 'PUT', 'DELETE'])
-# def puntuacion_detail_api_view(request, pk):
-#     try:
-#         puntuacion = Puntuacion.objects.get(pk=pk)
-#     except Puntuacion.DoesNotExist:
-#         return Response({
-#             'error': {
-#                 'code': 404,
-#                 'message': 'Puntuacion no encontrado.'
-#             }}, status=status.HTTP_404_NOT_FOUND)
-#     if request.method == 'GET':
-#         serializer = PuntuacionSerializer(puntuacion)
-#         return Response(serializer.data)
-
-#     elif request.method == 'PUT':
-#         serializer = PuntuacionSerializer(puntuacion, data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-#     elif request.method == 'DELETE':
-#         puntuacion.delete()
-#         return Response(status=status.HTTP_204_NO_CONTENT)
-
-
 class PuntuacionListCreateAPIView(APIView):
 
     def get(self, request):
