@@ -1,14 +1,13 @@
 from datetime import datetime, timezone
 from django.utils.timesince import timesince
 from rest_framework import serializers
-from reconocimientos.models import Puntuacion, Proyecto
+from reconocimientos.models import (Categoria, Mencion, Puntuacion, Proyecto)
 
 
 class PuntuacionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Puntuacion
-        # fields = ('__all__')
         exclude = ('id',)
 
     def validate(self, data):
@@ -38,3 +37,21 @@ class ProyectoSerializer(serializers.ModelSerializer):
         now = datetime.now(timezone.utc)
         time_delta = timesince(publication_date, now)
         return time_delta
+
+
+class MencionSerializer(serializers.ModelSerializer):
+
+    emisor = serializers.StringRelatedField()
+    receptor = serializers.StringRelatedField()
+    categoria = serializers.StringRelatedField()
+
+    class Meta:
+        model = Mencion
+        exclude = ('id',)
+
+
+class CategoriaSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Categoria
+        fields = '__all__'
