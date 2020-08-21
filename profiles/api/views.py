@@ -7,6 +7,7 @@ from rest_framework.generics import get_object_or_404
 from profiles.models import User
 from profiles.api.serializers import UserSerializer
 
+
 class UserCreateListAPIView(APIView):
 
     def get(self, request):
@@ -23,7 +24,7 @@ class UserCreateListAPIView(APIView):
 
 
 class UserDetailAPIView(APIView):
-    
+
     def get_object(self, pk):
         usuario = get_object_or_404(User, pk=pk)
         return usuario
@@ -40,7 +41,7 @@ class UserDetailAPIView(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+
     def delete(self, request, pk):
         usuario = self.get_object(pk)
         usuario.delete()

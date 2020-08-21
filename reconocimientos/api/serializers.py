@@ -30,7 +30,7 @@ class ProyectoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Proyecto
-        exclude = ('id',)
+        exclude = ('id', 'creado', 'actualizado')
 
     def get_time_since_publication(self, obj):
         publication_date = obj.actualizado
@@ -47,11 +47,10 @@ class MencionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Mencion
-        exclude = ('id',)
+        fields = '__all__'
 
 
 class CategoriaSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Categoria
         fields = '__all__'
