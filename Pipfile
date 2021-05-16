@@ -7,7 +7,7 @@ verify_ssl = true
 
 [packages]
 asgiref = "==3.2.3"
-djangorestframework = "==3.11.0"
+djangorestframework = ">=3.11.2"
 numpy = "==1.18.0"
 pandas = "==0.25.3"
 plotly = "==4.4.1"
