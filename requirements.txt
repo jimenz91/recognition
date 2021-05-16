@@ -1,6 +1,6 @@
 asgiref==3.2.3
-Django==3.0.8
-djangorestframework==3.11.0
+django = ">=3.0.14"
+djangorestframework = ">=3.11.2"
 numpy==1.18.0
 pandas==0.25.3
 plotly==4.4.1
