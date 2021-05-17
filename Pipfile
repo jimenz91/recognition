@@ -19,6 +19,7 @@ sqlparse = "==0.3.0"
 psycopg2-binary = "*"
 flake8 = "==3.8.3"
 autopep8 = "*"
+python-dotenv = "*"
 django = ">=3.0.14"
 
 [requires]
