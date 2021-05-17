@@ -1,12 +1,15 @@
 from rest_framework import status
-from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.generics import get_object_or_404
 
 from reconocimientos.models import Categoria, Mencion, Puntuacion, Proyecto
-from reconocimientos.api.serializers import (CategoriaSerializer, MencionSerializer,
-                                             PuntuacionSerializer, ProyectoSerializer)
+from reconocimientos.api.serializers import (
+    CategoriaSerializer,
+    MencionSerializer,
+    ProyectoSerializer,
+    PuntuacionSerializer,
+)
 
 
 class PuntuacionListCreateAPIView(APIView):

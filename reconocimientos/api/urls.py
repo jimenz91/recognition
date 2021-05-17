@@ -1,8 +1,12 @@
 from django.urls import path
-from reconocimientos.api.views import (CategoriaDetailAPIView, CategoriaCreateListAPIView,
-                                       MencionCreateListAPIView, MencionDetailAPIView,
-                                       PuntuacionDetailAPIView, PuntuacionListCreateAPIView,
-                                       ProyectoDetailAPIView, ProyectoListCreateAPIView)
+from reconocimientos.api.views import (CategoriaDetailAPIView,
+                                       CategoriaCreateListAPIView,
+                                       MencionCreateListAPIView,
+                                       MencionDetailAPIView,
+                                       PuntuacionDetailAPIView,
+                                       PuntuacionListCreateAPIView,
+                                       ProyectoDetailAPIView,
+                                       ProyectoListCreateAPIView)
 
 urlpatterns = [
     path('puntuaciones/', PuntuacionListCreateAPIView.as_view(),

@@ -2,8 +2,7 @@ from rest_framework import serializers
 from profiles.models import User
 from reconocimientos.models import Mencion
 from reconocimientos.api.serializers import (
-    CategoriaSerializer, MencionSerializer, ProyectoSerializer)
-import datetime as dt
+    CategoriaSerializer, ProyectoSerializer)
 
 
 class UserSerializer(serializers.ModelSerializer):
