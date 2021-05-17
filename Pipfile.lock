@@ -37,7 +37,7 @@
                 "sha256:5457fc953ec560c5521b41fad9e6734a4668b7ba205832191bbdff40ec61073c"
             ],
             "index": "pypi",
-            "version": "==3.0.8"
+            "version": ">=3.0.14"
         },
         "djangorestframework": {
             "hashes": [
