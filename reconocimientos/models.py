@@ -31,18 +31,18 @@ class Mencion(models.Model):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='emisor'
-        )
+    )
     receptor = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name='receptor'
-        )
+    )
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     puntuacion = models.ForeignKey(Puntuacion, on_delete=models.CASCADE)
     fecha_realización = models.DateTimeField(
         default=datetime.now,
         editable=False
-        )
+    )
 
     class Meta:
         verbose_name_plural = "Menciones"
@@ -61,7 +61,7 @@ class Proyecto(models.Model):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='autor_proyecto'
-        )
+    )
 
     def __str__(self):
         return self.nombre
