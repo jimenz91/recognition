@@ -14,7 +14,7 @@ def sample_user_2(
         email='andresgomez@bluetab.net',
         username='andres',
         password='123pass'
-        ):
+):
     """
     Método para crear un usuario para las pruebas.
     """

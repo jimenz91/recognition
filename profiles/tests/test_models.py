@@ -14,7 +14,7 @@ def sample_user_2(
         email='andresgomez@bluetab.net',
         username='andres',
         password='123pass'
-        ):
+):
     """
     Método para crear un usuario para las pruebas.
     """
@@ -48,10 +48,10 @@ class TestUserModel(TestCase):
         """Se asegura que el correo de un nuevo usuario está normalizado."""
         email = 'test@GMAil.com'
         user = get_user_model().objects.create_user(
-                                                    email=email,
-                                                    password='test123',
-                                                    username='usuario'
-                                                    )
+            email=email,
+            password='test123',
+            username='usuario'
+        )
 
         self.assertEqual(user.email, email.lower())
 
@@ -93,4 +93,4 @@ class TestUserModel(TestCase):
         self.assertEqual(
             str(usuario),
             usuario.first_name+" "+usuario.last_name
-            )
+        )
