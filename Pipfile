@@ -20,6 +20,7 @@ psycopg2-binary = "*"
 flake8 = "==3.8.3"
 autopep8 = "*"
 Django = "==3.0.8"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.8"
