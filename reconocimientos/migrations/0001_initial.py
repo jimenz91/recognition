@@ -6,6 +6,7 @@ from django.db import migrations, models
 import django.db.models.deletion
 
 
+# flake8: noqa
 class Migration(migrations.Migration):
 
     initial = True
@@ -18,7 +19,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Categoria',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('nombre', models.CharField(max_length=255)),
                 ('descripcion', models.TextField(blank=True, max_length=255)),
             ],
@@ -26,7 +28,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Puntuacion',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('denominacion', models.CharField(max_length=255)),
                 ('valor', models.IntegerField()),
                 ('descripcion', models.TextField(blank=True, max_length=300)),
@@ -38,25 +41,33 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Proyecto',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('nombre', models.CharField(max_length=100)),
                 ('descripcion', models.TextField(blank=True, max_length=1000)),
                 ('codigo', models.CharField(max_length=20)),
                 ('creado', models.DateTimeField(auto_now_add=True)),
                 ('actualizado', models.DateTimeField(auto_now=True)),
                 ('dificultad', models.IntegerField()),
-                ('autor', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='autor_proyecto', to=settings.AUTH_USER_MODEL)),
+                ('autor', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL,
+                                            related_name='autor_proyecto', to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
             name='Mencion',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('fecha_realización', models.DateTimeField(default=datetime.datetime.now, editable=False)),
-                ('categoria', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='reconocimientos.Categoria')),
-                ('emisor', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='emisor', to=settings.AUTH_USER_MODEL)),
-                ('puntuacion', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='reconocimientos.Puntuacion')),
-                ('receptor', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='receptor', to=settings.AUTH_USER_MODEL)),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
+                ('fecha_realización', models.DateTimeField(
+                    default=datetime.datetime.now, editable=False)),
+                ('categoria', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='reconocimientos.Categoria')),
+                ('emisor', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL,
+                                             related_name='emisor', to=settings.AUTH_USER_MODEL)),
+                ('puntuacion', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='reconocimientos.Puntuacion')),
+                ('receptor', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                               related_name='receptor', to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'verbose_name_plural': 'Menciones',
@@ -65,6 +76,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='categoria',
             name='puntuacion',
-            field=models.ManyToManyField(blank=True, default=4, to='reconocimientos.Puntuacion'),
+            field=models.ManyToManyField(
+                blank=True, default=4, to='reconocimientos.Puntuacion'),
         ),
     ]
