@@ -14,7 +14,8 @@ class UserSerializer(serializers.ModelSerializer):
 
     def get_menciones(self, obj):
         pk = obj.id
-        menciones_usuario = Mencion.objects.filter(emisor=pk).order_by('-fecha_realización')[:10]
+        menciones_usuario = Mencion.objects.filter(
+            emisor=pk).order_by('-fecha_realización')[:10]
         menciones = []
         for item in menciones_usuario:
             menciones.append({

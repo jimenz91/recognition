@@ -231,7 +231,8 @@ def dashboard(request):
             if pu in e.proyectos.all():
                 compañeros.append(e)
 
-    ultimas_menciones = Mencion.objects.filter(emisor=usuario.id,).order_by('-fecha_realización')[:5]
+    ultimas_menciones = Mencion.objects.filter(
+        emisor=usuario.id,).order_by('-fecha_realización')[:5]
 
     context = {
         'menciones': menciones,
